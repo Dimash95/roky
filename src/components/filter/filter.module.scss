@@ -1,0 +1,52 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  padding: 20px;
+  background-color: gray;
+  border-radius: 6px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 400px;
+  height: 30px;
+  padding: 0 10px;
+  background-color: white;
+  border-radius: 4px;
+
+  input {
+    width: 400px;
+  }
+  .input::placeholder {
+    color: gray;
+  }
+  button {
+    color: gray;
+    padding: 0px 5px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+
+.sortPage {
+  display: flex;
+  justify-content: space-between;
+  width: 340px;
+  margin-top: 20px;
+
+  .sort {
+    padding: 4px 2px;
+    background-color: white;
+  }
+
+  .page {
+    padding: 4px 2px;
+
+    background-color: white;
+  }
+}

@@ -1,5 +1,5 @@
 .home {
-  max-width: 1200px;
+  width: 1170px;
   margin: 0 auto;
   padding: 40px;
 }
@@ -17,3 +17,16 @@
   gap: 30px;
   margin-top: 40px;
 }
+
+.titleFilterWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1170px;
+
+  .title {
+    font-size: 30px;
+  }
+}
+
+
