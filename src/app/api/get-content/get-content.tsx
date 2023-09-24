@@ -1,8 +1,19 @@
 import axios from "axios";
 
-export const getContent = async () => {
+export const getContent = async (
+  query: string,
+  page: number,
+  pageSize: string
+) => {
   const response = await axios.get(
-    "https://content.guardianapis.com/search?api-key=703bf184-c4d8-4f55-a8ea-6a1d23f487e3"
+    "https://content.guardianapis.com/search?api-key=703bf184-c4d8-4f55-a8ea-6a1d23f487e3",
+    {
+      params: {
+        q: query,
+        page: page,
+        "page-size": pageSize,
+      },
+    }
   );
   console.log(response.data);
   return response.data;

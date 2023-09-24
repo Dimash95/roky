@@ -29,4 +29,26 @@
   }
 }
 
+.nothingFound {
+  margin-top: 100px;
+  font-size: 30px;
+  text-align: center;
+  color: red;
+}
 
+.pageList {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  gap: 10px;
+}
+
+.pageItem {
+  border: 1px solid black;
+  padding: 2px 6px;
+  cursor: pointer;
+
+  &:active {
+    background-color: gray;
+  }
+}

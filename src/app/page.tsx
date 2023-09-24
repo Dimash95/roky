@@ -10,8 +10,12 @@ import Filter from "@/components/filter/filter";
 export default function Home() {
   const [news, setNews] = useState<News[]>();
 
-  async function displayData() {
-    const newsResponses = (await getContent()) as NewsResponse;
+  async function displayData(query: string, page: number, pageSize: string) {
+    const newsResponses = (await getContent(
+      query,
+      page,
+      pageSize
+    )) as NewsResponse;
     const fetchedNews = mapNewsResponse(newsResponses);
     if (fetchedNews) setNews(fetchedNews);
   }
@@ -24,11 +28,22 @@ export default function Home() {
       title: result.webTitle,
     }));
 
-  useEffect(() => {
-    displayData();
-  }, []);
-
   const [searchValue, setSearchValue] = useState("");
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState("4");
+
+  useEffect(() => {
+    displayData(searchValue, page, pageSize);
+  }, [searchValue, page, pageSize]);
+
+  const prevPage = () => {
+    if (page === 1) return;
+    setPage(page - 1);
+  };
+
+  const nextPage = () => {
+    setPage(page + 1);
+  };
 
   const onChangeSearchInput = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
@@ -48,26 +63,31 @@ export default function Home() {
           searchValue={searchValue}
           onChangeSearchInput={onChangeSearchInput}
           cleanInputValue={cleanInputValue}
+          pageSize={pageSize}
+          setPageSize={setPageSize}
         />
       </div>
 
       {news?.length ? (
         <ul className={style.cards}>
-          {news
-            ?.filter((item) =>
-              item.title
-                .toLocaleLowerCase()
-                .includes(searchValue.toLocaleLowerCase())
-            )
-            .map((card) => (
-              <li key={card.id}>
-                <Card card={card} />
-              </li>
-            ))}
+          {news.map((card) => (
+            <li key={card.id}>
+              <Card card={card} />
+            </li>
+          ))}
         </ul>
       ) : (
-        "Nothing found!"
+        <h2 className={style.nothingFound}>Nothing found!</h2>
       )}
+
+      <ul className={style.pageList}>
+        <li className={style.pageItem} onClick={prevPage}>
+          {"<"}
+        </li>
+        <li className={style.pageItem} onClick={nextPage}>
+          {">"}
+        </li>
+      </ul>
     </div>
   );
 }
