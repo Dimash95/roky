@@ -40,12 +40,12 @@
   display: flex;
   justify-content: center;
   margin-top: 40px;
-  gap: 10px;
+  gap: 30px;
 }
 
 .pageItem {
   border: 1px solid black;
-  padding: 2px 6px;
+  padding: 8px 24px;
   cursor: pointer;
 
   &:active {

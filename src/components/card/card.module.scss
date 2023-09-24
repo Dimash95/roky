@@ -16,10 +16,18 @@
     margin-top: 10px;
   }
 
-  button {
+  a {
     align-self: flex-end;
+    display: flex;
+    align-items: center;
     font-size: 14px;
     padding: 3px 5px;
     background-color: bisque;
+    border: 1px solid bisque;
+
+
+    &:hover {
+      border: 1px solid black;
+    }
   }
 }

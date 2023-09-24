@@ -1,7 +1,7 @@
 import style from "./card.module.scss";
 import { News } from "@/app/entities/news";
 import { format } from "date-fns";
-
+import { BsArrowRightShort } from "react-icons/bs";
 interface Props {
   card: News;
 }
@@ -16,7 +16,11 @@ export default function Card({ card }: Props) {
 
       <p className={style.date}>{formattedDate}</p>
       <p className={style.title}>{card.title}</p>
-      <button>Details</button>
+
+      <a href={card.img} target="blank">
+        {"Details"}
+        <BsArrowRightShort />
+      </a>
     </div>
   );
 }

@@ -10,11 +10,12 @@ import Filter from "@/components/filter/filter";
 export default function Home() {
   const [news, setNews] = useState<News[]>();
 
-  async function displayData(query: string, page: number, pageSize: string) {
+  async function displayData(query: string, page: number, pageSize: string, sortBy:string) {
     const newsResponses = (await getContent(
       query,
       page,
-      pageSize
+      pageSize,
+      sortBy
     )) as NewsResponse;
     const fetchedNews = mapNewsResponse(newsResponses);
     if (fetchedNews) setNews(fetchedNews);
@@ -31,10 +32,11 @@ export default function Home() {
   const [searchValue, setSearchValue] = useState("");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState("4");
+  const [sortBy, setSortBy] = useState("newest");
 
   useEffect(() => {
-    displayData(searchValue, page, pageSize);
-  }, [searchValue, page, pageSize]);
+    displayData(searchValue, page, pageSize, sortBy);
+  }, [searchValue, page, pageSize, sortBy]);
 
   const prevPage = () => {
     if (page === 1) return;
@@ -65,6 +67,8 @@ export default function Home() {
           cleanInputValue={cleanInputValue}
           pageSize={pageSize}
           setPageSize={setPageSize}
+          sortBy={sortBy}
+          setSortBy={setSortBy}
         />
       </div>
 
@@ -80,14 +84,14 @@ export default function Home() {
         <h2 className={style.nothingFound}>Nothing found!</h2>
       )}
 
-      <ul className={style.pageList}>
-        <li className={style.pageItem} onClick={prevPage}>
+      <div className={style.pageList}>
+        <button className={style.pageItem} onClick={prevPage}>
           {"<"}
-        </li>
-        <li className={style.pageItem} onClick={nextPage}>
+        </button>
+        <button className={style.pageItem} onClick={nextPage}>
           {">"}
-        </li>
-      </ul>
+        </button>
+      </div>
     </div>
   );
 }

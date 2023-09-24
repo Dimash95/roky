@@ -1,7 +1,8 @@
 import style from "./filter.module.scss";
 import { ChangeEvent, useState, Dispatch, SetStateAction } from "react";
-import { BiSolidUpArrow } from "react-icons/bi";
-import { BiSolidDownArrow } from "react-icons/bi";
+
+import ItemsOnPage from "../items-on-page/items-on-page";
+import Sort from "../sort/sort";
 
 interface Props {
   searchValue: string;
@@ -9,6 +10,8 @@ interface Props {
   cleanInputValue: () => void;
   pageSize: string;
   setPageSize: Dispatch<SetStateAction<string>>;
+  sortBy: string;
+  setSortBy: Dispatch<SetStateAction<string>>;
 }
 
 export default function Filter({
@@ -17,10 +20,9 @@ export default function Filter({
   cleanInputValue,
   pageSize,
   setPageSize,
+  sortBy,
+  setSortBy,
 }: Props) {
-  const [isActive, setIsActive] = useState(false);
-  const options = ["4", "8", "12"];
-
   return (
     <div className={style.filter}>
       <div className={style.search}>
@@ -47,27 +49,9 @@ export default function Filter({
         )}
       </div>
       <div className={style.sortPage}>
-        <div className={style.sort}>sort by newest</div>
-        <div className={style.pageWrapper}>
-          <div className={style.page} onClick={() => setIsActive(!isActive)}>
-            {pageSize ? "Items on page " + pageSize : "Items on page 4"}
-            {isActive ? <BiSolidUpArrow /> : <BiSolidDownArrow />}
-            {isActive && (
-              <ul className={style.pageList}>
-                {options.map((option) => (
-                  <li
-                    className={style.pageItem}
-                    onClick={() => {
-                      setPageSize(option), setIsActive(!isActive);
-                    }}
-                  >
-                    {"Items on page " + option}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </div>
+        <Sort sortBy={sortBy} setSortBy={setSortBy} />
+
+        <ItemsOnPage pageSize={pageSize} setPageSize={setPageSize} />
       </div>
     </div>
   );

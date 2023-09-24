@@ -45,32 +45,4 @@
   }
 }
 
-.pageWrapper {
-  display: flex;
-}
 
-.page {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  padding: 4px 6px;
-  width: 150px;
-  border: 1px solid gray;
-  background-color: white;
-  cursor: pointer;
-}
-
-.pageList {
-  position: absolute;
-  top: 26px;
-  left: -1px;
-  background-color: white;
-  border: 1px solid gray;
-  width: 150px;
-  padding: 4px 6px;
-  cursor: pointer;
-}
-
-.pageItem {
-  margin-top: 5px;
-}
