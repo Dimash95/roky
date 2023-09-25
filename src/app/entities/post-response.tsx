@@ -4,6 +4,10 @@ export interface PostResponse {
       webTitle: string;
       webPublicationDate: string;
       webUrl: string;
+      fields: {
+        thumbnail: string;
+        bodyText: string;
+      };
     };
   };
 }

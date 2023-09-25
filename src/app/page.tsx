@@ -30,9 +30,10 @@ export default function Home() {
   const mapNewsResponse = (payload: NewsResponse): News[] =>
     payload.response.results.map((result) => ({
       id: result.id,
-      img: result.webUrl,
+      img: result.fields.thumbnail,
       date: result.webPublicationDate,
       title: result.webTitle,
+      text: result.fields.bodyText,
     }));
 
   const [searchValue, setSearchValue] = useState("");
