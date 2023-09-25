@@ -1,0 +1,28 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 250px;
+  height: 300px;
+  padding: 10px;
+  border: 1px solid gray;
+}
+.card .date {
+  font-size: 14px;
+  color: gray;
+}
+.card .title {
+  margin-top: 10px;
+}
+.card .details {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding: 3px 5px;
+  background-color: bisque;
+  border: 1px solid bisque;
+}
+.card .details:hover {
+  border: 1px solid black;
+}/*# sourceMappingURL=card.module.css.map */

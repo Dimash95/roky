@@ -1,0 +1,25 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+
+  h1 {
+    font-size: 30px;
+  }
+
+  ul {
+    margin-top: 30px;
+  }
+
+  li {
+    margin-top: 10px;
+    font-size: 18px;
+    list-style: disc;
+
+    &::marker {
+      content: "- ";
+    }
+  }
+}

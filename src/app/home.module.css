@@ -13,16 +13,19 @@
   flex-wrap: wrap;
   margin: 0 auto;
   padding: 40px;
-
-  @media screen and (max-width: 1200px) {
+}
+@media screen and (max-width: 1200px) {
+  .home {
     width: 1000px;
   }
-
-  @media screen and (max-width: 1000px) {
+}
+@media screen and (max-width: 1000px) {
+  .home {
     width: 640px;
   }
-
-  @media screen and (max-width: 650px) {
+}
+@media screen and (max-width: 650px) {
+  .home {
     width: 340px;
   }
 }
@@ -39,16 +42,19 @@
   flex-wrap: wrap;
   gap: 30px;
   margin-top: 40px;
-
-  @media screen and (max-width: 1200px) {
+}
+@media screen and (max-width: 1200px) {
+  .cards {
     width: 900px;
   }
-
-  @media screen and (max-width: 1000px) {
+}
+@media screen and (max-width: 1000px) {
+  .cards {
     width: 600px;
   }
-
-  @media screen and (max-width: 650px) {
+}
+@media screen and (max-width: 650px) {
+  .cards {
     width: 260px;
   }
 }
@@ -60,24 +66,26 @@
   flex-wrap: wrap;
   width: 1100px;
   padding: 20px;
-
-  @media screen and (max-width: 1270px) {
+}
+@media screen and (max-width: 1270px) {
+  .titleFilterWrapper {
     width: 600px;
     flex-direction: column;
     gap: 20px;
   }
-
-  @media screen and (max-width: 950px) {
+}
+@media screen and (max-width: 950px) {
+  .titleFilterWrapper {
     width: 400px;
   }
-
-  @media screen and (max-width: 650px) {
+}
+@media screen and (max-width: 650px) {
+  .titleFilterWrapper {
     width: 280px;
   }
-
-  .title {
-    font-size: 30px;
-  }
+}
+.titleFilterWrapper .title {
+  font-size: 30px;
 }
 
 .pageList {
@@ -91,8 +99,7 @@
   border: 1px solid black;
   padding: 8px 24px;
   cursor: pointer;
-
-  &:active {
-    background-color: gray;
-  }
 }
+.pageItem:active {
+  background-color: gray;
+}/*# sourceMappingURL=home.module.css.map */
