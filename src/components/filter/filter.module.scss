@@ -2,17 +2,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   width: 500px;
   padding: 20px;
   background-color: gray;
   border-radius: 6px;
 
   @media screen and (max-width: 950px) {
-    width: 340px;
+    width: 400px;
   }
 
   @media screen and (max-width: 650px) {
-    width: 240px;
+    width: 360px;
   }
 }
 
@@ -20,34 +21,20 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 400px;
+  width: 100%;
   height: 30px;
   padding: 0 10px;
   background-color: white;
   border-radius: 4px;
 
-  @media screen and (max-width: 950px) {
-    width: 300px;
-  }
-
-  @media screen and (max-width: 950px) {
-    width: 300px;
-  }
-
-  @media screen and (max-width: 650px) {
-    width: 160px;
-  }
-
   input {
-    width: 400px;
-
-    @media screen and (max-width: 650px) {
-      width: 80px;
-    }
+    width: 100%;
   }
+
   .input::placeholder {
     color: gray;
   }
+
   button {
     color: gray;
     padding: 0px 5px;
@@ -60,18 +47,11 @@
 .sortPage {
   display: flex;
   justify-content: space-between;
-  width: 340px;
+  width: 80%;
   margin-top: 20px;
 
   @media screen and (max-width: 650px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 240px;
-  }
-
-  @media screen and (max-width: 950px) {
-    width: 280px;
+    width: 90%;
   }
 
   .sort {
