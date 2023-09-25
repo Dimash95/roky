@@ -1,16 +1,22 @@
 "use client";
-import style from "./home.module.scss";
 import { useEffect, useState, ChangeEvent } from "react";
 import { getContent } from "./api/get-content/get-content";
+import Filter from "@/components/filter/filter";
 import Card from "../components/card/card";
 import { NewsResponse } from "./entities/news-response";
 import { News } from "./entities/news";
-import Filter from "@/components/filter/filter";
+import style from "./home.module.scss";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 export default function Home() {
   const [news, setNews] = useState<News[]>();
 
-  async function displayData(query: string, page: number, pageSize: string, sortBy:string) {
+  async function displayData(
+    query: string,
+    page: number,
+    pageSize: string,
+    sortBy: string
+  ) {
     const newsResponses = (await getContent(
       query,
       page,
@@ -73,25 +79,27 @@ export default function Home() {
       </div>
 
       {news?.length ? (
-        <ul className={style.cards}>
-          {news.map((card) => (
-            <li key={card.id}>
-              <Card card={card} />
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <h2 className={style.nothingFound}>Nothing found!</h2>
-      )}
+        <div>
+          <ul className={style.cards}>
+            {news.map((card) => (
+              <li key={card.id}>
+                <Card card={card} />
+              </li>
+            ))}
+          </ul>
 
-      <div className={style.pageList}>
-        <button className={style.pageItem} onClick={prevPage}>
-          {"<"}
-        </button>
-        <button className={style.pageItem} onClick={nextPage}>
-          {">"}
-        </button>
-      </div>
+          <div className={style.pageList}>
+            <button className={style.pageItem} onClick={prevPage}>
+              {"<"}
+            </button>
+            <button className={style.pageItem} onClick={nextPage}>
+              {">"}
+            </button>
+          </div>
+        </div>
+      ) : (
+        <AiOutlineLoading3Quarters className={style.loading} />
+      )}
     </div>
   );
 }

@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 30px;
+  background-color: black;
+}
+
+.link {
+  font-size: 20px;
+  color: white;
+}
+.link:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=header.module.css.map */

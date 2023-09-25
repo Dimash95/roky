@@ -19,12 +19,13 @@ export default function ItemsOnPage({ pageSize, setPageSize }: Props) {
         {isActive ? <BiSolidUpArrow /> : <BiSolidDownArrow />}
         {isActive && (
           <ul className={style.pageList}>
-            {options.map((option) => (
+            {options.map((option, index) => (
               <li
                 className={style.pageItem}
                 onClick={() => {
                   setPageSize(option), setIsActive(!isActive);
                 }}
+                key={index}
               >
                 {"Items on page " + option}
               </li>

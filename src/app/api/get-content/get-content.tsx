@@ -17,6 +17,5 @@ export const getContent = async (
       },
     }
   );
-  console.log(response.data);
   return response.data;
 };

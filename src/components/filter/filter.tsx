@@ -1,6 +1,5 @@
 import style from "./filter.module.scss";
 import { ChangeEvent, useState, Dispatch, SetStateAction } from "react";
-
 import ItemsOnPage from "../items-on-page/items-on-page";
 import Sort from "../sort/sort";
 
@@ -33,6 +32,7 @@ export default function Filter({
           width={22}
           height={22}
         />
+
         <input
           className={style.input}
           onChange={onChangeSearchInput}

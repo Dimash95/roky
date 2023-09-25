@@ -19,12 +19,13 @@ export default function Sort({ sortBy, setSortBy }: Props) {
         {isActive ? <BiSolidUpArrow /> : <BiSolidDownArrow />}
         {isActive && (
           <ul className={style.pageList}>
-            {options.map((option) => (
+            {options.map((option, index) => (
               <li
                 className={style.pageItem}
                 onClick={() => {
                   setSortBy(option), setIsActive(!isActive);
                 }}
+                key={index}
               >
                 {option}
               </li>
